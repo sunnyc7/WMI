@@ -1,0 +1,49 @@
+// Evil Installed Products MOF File
+// 
+// PURPOSE: Provide a faster inventory of Installed Software remotely.
+// COMPILATION: mofcomp.exe Evil_InstalledProducts.mof
+// 
+// CLASSES:Evil_InstalledProducts
+// -- Evil_InstalledProducts
+// -- Evil_InstalledProducts32
+// 
+ 
+#PRAGMA AUTORECOVER
+#PRAGMA namespace ("\\\\.\\root\\EvilCorp")
+ 
+[dynamic, provider("RegProv"),
+ProviderClsid("{fe9af5c0-d3b6-11ce-a5b6-00aa00680c3f}"),ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall")]
+class Evil_InstalledProducts {
+[key] string KeyName;
+[read, propertycontext("DisplayName")] string DisplayName;
+[read, propertycontext("DisplayVersion")] string DisplayVersion;
+[read, propertycontext("InstallDate")] string InstallDate;
+[read, propertycontext("InstallSource")] string InstallSource;
+[read, propertycontext("InstallLocation")] string InstallLocation;
+[read, propertycontext("Publisher")] string Publisher;
+[read, propertycontext("EstimatedSize")] string EstimatedSize;
+[read, propertycontext("HelpLink")] string HelpLink;
+[read, propertycontext("Language")] string Language;
+[read, propertycontext("Version")] string Version;
+[read, propertycontext("UninstallString")] string UninstallString;
+[read, propertycontext("WindowsInstaller")] string WindowsInstaller;
+};
+ 
+[dynamic, provider("RegProv"),
+ProviderClsid("{fe9af5c0-d3b6-11ce-a5b6-00aa00680c3f}"),ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432node\\Microsoft\\Windows\\CurrentVersion\\Uninstall")]
+class Evil_InstalledProducts32 {
+[key] string KeyName;
+[read, propertycontext("DisplayName")] string DisplayName;
+[read, propertycontext("DisplayVersion")] string DisplayVersion;
+[read, propertycontext("InstallDate")] string InstallDate;
+[read, propertycontext("InstallSource")] string InstallSource;
+[read, propertycontext("InstallLocation")] string InstallLocation;
+[read, propertycontext("Publisher")] string Publisher;
+[read, propertycontext("EstimatedSize")] string EstimatedSize;
+[read, propertycontext("HelpLink")] string HelpLink;
+[read, propertycontext("Language")] string Language;
+[read, propertycontext("Version")] string Version;
+[read, propertycontext("UninstallString")] string UninstallString;
+[read, propertycontext("WindowsInstaller")] string WindowsInstaller;
+};
+
